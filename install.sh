@@ -147,7 +147,7 @@ init_complete_tool_database() {
     TOOL_INSTALL_INFO["autorecon"]="pip_install|autorecon|Automated reconnaissance with 35+ parameters"
     TOOL_INSTALL_INFO["fierce"]="pip_install|fierce|DNS reconnaissance and zone transfer testing"
     TOOL_INSTALL_INFO["masscan"]="pkg_manager|masscan|High-speed Internet-scale port scanner"
-    TOOL_INSTALL_INFO["rustscan"]="github_release|https://github.com/RustScan/RustScan/releases/latest/download/rustscan_2.1.1_${ARCH_TYPE}.deb|Rust-based port scanner"
+    TOOL_INSTALL_INFO["rustscan"]="github_release|https://github.com/bee-san/RustScan/releases/download/2.3.0/rustscan_2.3.0_amd64.deb|Rust-based port scanner"
     TOOL_INSTALL_INFO["dnsenum"]="pkg_manager|dnsenum|DNS enumeration tool"
     TOOL_INSTALL_INFO["theharvester"]="pkg_manager|theharvester|Email/subdomain harvester"
     TOOL_INSTALL_INFO["responder"]="pkg_manager|responder|LLMNR/NBT-NS/MDNS poisoner"
