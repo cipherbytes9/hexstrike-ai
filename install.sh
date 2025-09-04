@@ -207,7 +207,7 @@ init_complete_tool_database() {
     TOOL_INSTALL_INFO["steghide"]="pkg_manager|steghide|Steganography detection and extraction"
     TOOL_INSTALL_INFO["exiftool"]="pkg_manager|libimage-exiftool-perl|Metadata reader/writer for various file formats"
     TOOL_INSTALL_INFO["hashpump"]="github_manual|https://github.com/cipherbytes9/HashPump|Hash length extension attack tool"
-        TOOL_INSTALL_INFO["sleuthkit"]="pkg_manager|sleuthkit|Collection of command-line digital forensics tools"
+    TOOL_INSTALL_INFO["sleuthkit"]="pkg_manager|sleuthkit|Collection of command-line digital forensics tools"
     
     # ☁️ Cloud & Container Security (from README)
     TOOL_INSTALL_INFO["prowler"]="pip_install|prowler-cloud|AWS/Azure/GCP security assessment tool"
