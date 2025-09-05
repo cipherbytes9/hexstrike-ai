@@ -2,7 +2,7 @@
 
 # HexStrike AI - Official Tools Verification Script (Based on Official README)
 # Supports multiple Linux distributions with verified download links
-# Version 3.5 - Complete coverage of all 70+ HexStrike AI tools
+# Version 3.6 - Complete coverage of all 70+ HexStrike AI tools
 
 RED='\033[0;31m'
 GREEN='\033[0;32m'
@@ -23,7 +23,7 @@ echo "██╔══██║██╔══╝   ██╔██╗ ╚══�
 echo "██║  ██║███████╗██╔╝ ██╗███████║   ██║   ██║  ██║██║██║  ██╗███████╗"
 echo "╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝╚══════╝   ╚═╝   ╚═╝  ╚═╝╚═╝╚═╝  ╚═╝╚══════╝"
 echo -e "${NC}"
-echo -e "${WHITE}HexStrike AI - Official Security Tools Checker v3.5 by Cipherbytes9${NC}"
+echo -e "${WHITE}HexStrike AI - Official Security Tools Checker v3.6 by Cipherbytes9${NC}"
 echo -e "${BLUE}🔗 Based on official HexStrike AI README - 70+ tools coverage${NC}"
 echo -e "${ORANGE}📋 Comprehensive verification with working download links${NC}"
 echo ""
@@ -207,7 +207,7 @@ init_complete_tool_database() {
     TOOL_INSTALL_INFO["steghide"]="pkg_manager|steghide|Steganography detection and extraction"
     TOOL_INSTALL_INFO["exiftool"]="pkg_manager|libimage-exiftool-perl|Metadata reader/writer for various file formats"
     TOOL_INSTALL_INFO["hashpump"]="github_manual|https://github.com/cipherbytes9/HashPump|Hash length extension attack tool"
-    TOOL_INSTALL_INFO["sleuthkit"]="pkg_manager|sleuthkit|Collection of command-line digital forensics tools"
+        TOOL_INSTALL_INFO["sleuthkit"]="pkg_manager|sleuthkit|Collection of command-line digital forensics tools"
     
     # ☁️ Cloud & Container Security (from README)
     TOOL_INSTALL_INFO["prowler"]="pip_install|prowler-cloud|AWS/Azure/GCP security assessment tool"
@@ -221,9 +221,11 @@ init_complete_tool_database() {
     TOOL_INSTALL_INFO["hakrawler"]="go_install|github.com/hakluke/hakrawler|Fast web endpoint discovery and crawling"
     TOOL_INSTALL_INFO["httpx"]="go_install|github.com/projectdiscovery/httpx/cmd/httpx|Fast and multi-purpose HTTP toolkit"
     TOOL_INSTALL_INFO["paramspider"]="github_manual|https://github.com/devanshbatham/ParamSpider|Mining parameters from dark corners of web archives"
-    TOOL_INSTALL_INFO["aquatone"]="github_release|https://github.com/michenriksen/aquatone/releases/latest/download/aquatone_linux_amd64_1.7.0.zip|Visual inspection of websites across hosts"
+    TOOL_INSTALL_INFO["aquatone"]="github_release|https://github.com/cipherbytes9/aquatone|Visual inspection of websites across hosts"
     TOOL_INSTALL_INFO["subjack"]="go_install|github.com/haccer/subjack|Subdomain takeover vulnerability checker"
     TOOL_INSTALL_INFO["dnsenum"]="pkg_manager|dnsenum|DNS enumeration script"
+    TOOL_INSTALL_INFO["spiderfoot"]="pkg_manager|spiderfoot|OSINT automation with 200+ modules"
+    TOOL_INSTALL_INFO["shodan"]="pip_install|shodan|Internet-connected device search engine"
     
     # Additional tools mentioned in the server code but not explicitly in README categories
     TOOL_INSTALL_INFO["theharvester"]="pkg_manager|theharvester|Email/subdomain harvester"
@@ -240,7 +242,7 @@ init_complete_tool_database() {
     TOOL_INSTALL_INFO["msfconsole"]="pkg_manager|metasploit-framework|Metasploit console"
     TOOL_INSTALL_INFO["hash-identifier"]="pkg_manager|hash-identifier|Hash type identifier"
     TOOL_INSTALL_INFO["ophcrack"]="pkg_manager|ophcrack|Windows password cracker"
-    TOOL_INSTALL_INFO["rustscan"]="github_release|https://github.com/RustScan/RustScan/releases/latest/download/rustscan_2.1.1_amd64.deb|Ultra-fast port scanner"
+    TOOL_INSTALL_INFO["rustscan"]="github_release|https://github.com/bee-san/RustScan/releases/download/2.3.0/rustscan_2.3.0_amd64.deb|Ultra-fast port scanner"
 }
 
 # Function to get package name based on distribution
@@ -262,6 +264,8 @@ get_package_name() {
                 "sleuthkit") echo "sleuthkit" ;;
                 "metasploit-framework") echo "metasploit-framework" ;;
                 "xxd") echo "xxd" ;;
+                "spiderfoot") echo "spiderfoot" ;;
+                "shodan") echo "shodan" ;;
                 *) echo "$tool" ;;
             esac
             ;;
@@ -516,8 +520,13 @@ generate_verified_install_commands() {
             echo "# Binary Analysis & Reverse Engineering tools"
             echo "sudo apt install -y gdb radare2 binwalk checksec binutils foremost steghide libimage-exiftool-perl sleuthkit xxd metasploit-framework"
             echo ""
+            echo "# Bug Bounty & OSINT Tools"
+            echo "sudo apt install -y spiderfoot"
+            echo ""
             echo "# Python packages"
             echo "pip3 install autorecon ropgadget arjun crackmapexec netexec volatility3 prowler-cloud scoutsuite kube-hunter smbmap"
+            echo ""
+            echo "pip3 install -U --user shodan"
             echo ""
             echo "# Go packages (requires Go)"
             echo "go install github.com/owasp-amass/amass/v4/cmd/amass@latest"
@@ -674,6 +683,8 @@ check_tool "httpx"
 check_tool "paramspider"
 check_tool "aquatone"
 check_tool "subjack"
+check_tool "spiderfoot"
+check_tool "shodan"
 echo ""
 
 # Summary
@@ -751,11 +762,13 @@ fi
 
 echo ""
 echo -e "${BLUE}💡 NEXT STEPS FOR HEXSTRIKE AI:${NC}"
-echo "1. Install missing tools using the commands above"
-echo "2. Clone HexStrike AI: git clone https://github.com/0x4m4/hexstrike-ai.git"
-echo "3. Install Python dependencies: pip3 install -r requirements.txt"
-echo "4. Start the server: python3 hexstrike_server.py"
-echo "5. Configure your AI agent with the MCP client"
+echo "1. Launch Shodan and input API Key"
+echo "1a. shodan init YOUR_API_KEY"
+echo "2. Install missing tools using the commands above"
+echo "3. Clone HexStrike AI: git clone https://github.com/0x4m4/hexstrike-ai.git"
+echo "4. Install Python dependencies: pip3 install -r requirements.txt"
+echo "5. Start the server: python3 hexstrike_server.py"
+echo "6. Configure your AI agent with the MCP client"
 echo ""
 echo -e "${CYAN}🌐 Official HexStrike AI Resources:${NC}"
 echo "📖 Documentation: https://github.com/0x4m4/hexstrike-ai/blob/master/README.md"
