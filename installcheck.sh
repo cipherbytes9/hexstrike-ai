@@ -235,6 +235,7 @@ init_complete_tool_database() {
     TOOL_INSTALL_INFO["dirsearch"]="github_manual|https://github.com/maurosoria/dirsearch|Web path discovery tool"
     TOOL_INSTALL_INFO["katana"]="go_install|github.com/projectdiscovery/katana/cmd/katana|Web crawler"
     TOOL_INSTALL_INFO["dalfox"]="go_install|github.com/hahwul/dalfox/v2|XSS scanner and utility"
+    TOOL_INSTALL_INFO["pdtm"]="go_install|https://github.com/projectdiscovery/pdtm|ProjectDiscovery Install Tool"
     
     # Tools from the MCP code analysis
     TOOL_INSTALL_INFO["smbmap"]="pip_install|smbmap|SMB share enumeration tool"
@@ -266,6 +267,7 @@ get_package_name() {
                 "xxd") echo "xxd" ;;
                 "spiderfoot") echo "spiderfoot" ;;
                 "shodan") echo "shodan" ;;
+                "pdtm") echo "pdtm" ;;
                 *) echo "$tool" ;;
             esac
             ;;
@@ -530,6 +532,7 @@ generate_verified_install_commands() {
             echo ""
             echo "# Go packages (requires Go)"
             echo "go install github.com/owasp-amass/amass/v4/cmd/amass@latest"
+            echo "go install -v github.com/projectdiscovery/pdtm/cmd/pdtm@latest"
             echo "go install github.com/projectdiscovery/subfinder/v2/cmd/subfinder@latest"
             echo "go install github.com/projectdiscovery/nuclei/v3/cmd/nuclei@latest"
            echo "go install github.com/projectdiscovery/httpx/cmd/httpx@latest"
@@ -700,7 +703,7 @@ echo -e "${CYAN}📋 HEXSTRIKE AI OFFICIAL REQUIREMENTS:${NC}"
 echo "================================================"
 
 # Essential tools (based on README)
-ESSENTIAL_TOOLS=("nmap" "nuclei" "gobuster" "ffuf" "sqlmap" "hydra" "gdb" "radare2")
+ESSENTIAL_TOOLS=("nmap" "nuclei" "gobuster" "ffuf" "sqlmap" "hydra" "gdb" "radare2" "pdtm")
 ESSENTIAL_MISSING=0
 ESSENTIAL_TOTAL=${#ESSENTIAL_TOOLS[@]}
 
